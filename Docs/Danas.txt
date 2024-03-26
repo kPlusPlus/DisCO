@@ -1,0 +1,19 @@
+
+Volume deviceid: C: 0000_0000_0000_0000_0026_B768_64D6_5EB5.
+wmic diskdrive get model,serialNumber,size,mediaType
+JMicron  SCSI Disk Device             	2017120670A6
+										2017120670A6
+
+
+vol e:								// 6A93-8F90
+
+Crystal
+TOSHIBA MQ01ABD075 750,1 GB
+83IJS8IGS
+
+
+Disk ID: {39D24A48-F4C4-451C-8C77-017741DB5F23}
+
+diskpart /s C:\BackupConf\INI\listdisk.ini > C:\BackupConf\Log\usb_disk_list.txt
+
+Disk ID: {39D24A48-F4C4-451C-8C77-017741DB5F23}

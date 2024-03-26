@@ -1,0 +1,5 @@
+﻿IP Address usb1
+IP Address usb2
+
+disk ID usb1
+disk ID usb2
