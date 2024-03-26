@@ -94,10 +94,11 @@ namespace DisCO
             }
 
             UsbDisc usbDisc = new UsbDisc();
-            usbDisc.IPAddress = txtIPAddress.Text;
+            usbDisc.IPAddress = txtIPAddress.Text.Trim();
             usbDisc.OrderNO = int.Parse(txtNO.Text);
-            usbDisc.DiscID = txtUnique.Text;
-            usbDisc.Letter = txtLetter.Text;
+            usbDisc.DiscID = txtUnique.Text.Trim();
+            usbDisc.Letter = txtLetter.Text.Trim();
+            usbDisc.VolumeNo = int.Parse(txtVolNo.Text);
 
             FileStream fs = new FileStream(this.Name + ".bin", FileMode.OpenOrCreate);
             XmlSerializer serializer = new XmlSerializer(typeof(UsbDisc));
@@ -110,6 +111,13 @@ namespace DisCO
             formParent.common.SetPropertyValue(Path.Combine(formParent.dirConfig, "config.ini"), usbProp, usbDisc.DiscID);
             // Grep IP
             formParent.common.GrepIpByEveryFiles(txtIPAddress.Text);
+            // select volume            
+            string usbNo = "usb" + numOfUsb;
+            formParent.common.GrepByUsbDevice(usbNo, usbDisc.VolumeNo.ToString() );
+            // assign letter 
+            formParent.common.GrepByUsbDeviceLetter(usbNo,usbDisc.Letter);
+            // select disk
+            formParent.common.GrepByUsbDeviceDisk(usbNo,usbDisc.OrderNO.ToString() );
         }
 
 
@@ -131,11 +139,13 @@ namespace DisCO
                     txtNO.Text = usbDisc.OrderNO.ToString();
                     txtUnique.Text = usbDisc.DiscID;
                     txtLetter.Text = usbDisc.Letter;
+                    txtVolNo.Text = usbDisc.VolumeNo.ToString();
                 }
                 catch(Exception ex) 
-                {
+                {                    
                     formParent.MC_NLOG_error("Error 74 " + fileBin + " " + ex.Message.ToString());
                     Debug.WriteLine("Error 74 " + fileBin + " " + ex.Message.ToString());
+                    
                 }
             }
         }
@@ -206,6 +216,7 @@ namespace DisCO
         public string IPAddress = string.Empty;
         public string DiscID = string.Empty;
         public int OrderNO = 0;
+        public int VolumeNo = 0;
         public string Letter = string.Empty;
 
     }

@@ -45,6 +45,7 @@
             btnRunBatch = new Button();
             cmbListScripts = new ComboBox();
             panel2 = new Panel();
+            ucDisc3 = new ucDisc();
             tableLayoutPanel1.SuspendLayout();
             panelRunnerScript.SuspendLayout();
             panel2.SuspendLayout();
@@ -54,11 +55,13 @@
             // 
             tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.BackColor = Color.WhiteSmoke;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Controls.Add(ucDisc1, 0, 0);
             tableLayoutPanel1.Controls.Add(ucDisc2, 1, 0);
+            tableLayoutPanel1.Controls.Add(ucDisc3, 2, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -72,15 +75,15 @@
             ucDisc1.Dock = DockStyle.Fill;
             ucDisc1.Location = new Point(3, 3);
             ucDisc1.Name = "ucDisc1";
-            ucDisc1.Size = new Size(464, 275);
+            ucDisc1.Size = new Size(307, 275);
             ucDisc1.TabIndex = 0;
             // 
             // ucDisc2
             // 
             ucDisc2.Dock = DockStyle.Fill;
-            ucDisc2.Location = new Point(473, 3);
+            ucDisc2.Location = new Point(316, 3);
             ucDisc2.Name = "ucDisc2";
-            ucDisc2.Size = new Size(465, 275);
+            ucDisc2.Size = new Size(307, 275);
             ucDisc2.TabIndex = 1;
             // 
             // btnLog
@@ -241,6 +244,14 @@
             panel2.Size = new Size(776, 125);
             panel2.TabIndex = 18;
             // 
+            // ucDisc3
+            // 
+            ucDisc3.Dock = DockStyle.Fill;
+            ucDisc3.Location = new Point(629, 3);
+            ucDisc3.Name = "ucDisc3";
+            ucDisc3.Size = new Size(309, 275);
+            ucDisc3.TabIndex = 2;
+            // 
             // frmDisCO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -280,5 +291,6 @@
         private Button btnEditBatch;
         private Button btnStyleBlueMatrix;
         private Panel panel2;
+        private ucDisc ucDisc3;
     }
 }

@@ -41,11 +41,13 @@
             label3 = new Label();
             btnSave = new Button();
             label4 = new Label();
+            label5 = new Label();
+            txtVolNo = new TextBox();
             SuspendLayout();
             // 
             // txtLetter
             // 
-            txtLetter.Location = new Point(20, 156);
+            txtLetter.Location = new Point(143, 158);
             txtLetter.Name = "txtLetter";
             txtLetter.Size = new Size(45, 23);
             txtLetter.TabIndex = 4;
@@ -138,9 +140,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 96);
             label3.Name = "label3";
-            label3.Size = new Size(127, 15);
+            label3.Size = new Size(109, 15);
             label3.TabIndex = 18;
-            label3.Text = "Volume Order Number";
+            label3.Text = "Disk Order Number";
             // 
             // btnSave
             // 
@@ -157,16 +159,34 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 140);
+            label4.Location = new Point(151, 140);
             label4.Name = "label4";
             label4.Size = new Size(37, 15);
             label4.TabIndex = 20;
             label4.Text = "Letter";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 140);
+            label5.Name = "label5";
+            label5.Size = new Size(127, 15);
+            label5.TabIndex = 22;
+            label5.Text = "Volume Order Number";
+            // 
+            // txtVolNo
+            // 
+            txtVolNo.Location = new Point(20, 158);
+            txtVolNo.Name = "txtVolNo";
+            txtVolNo.Size = new Size(48, 23);
+            txtVolNo.TabIndex = 21;
+            // 
             // ucDisc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label5);
+            Controls.Add(txtVolNo);
             Controls.Add(label4);
             Controls.Add(btnSave);
             Controls.Add(btnOn);
@@ -201,5 +221,7 @@
         private Label label3;
         public Button btnSave;
         private Label label4;
+        private Label label5;
+        public TextBox txtVolNo;
     }
 }
