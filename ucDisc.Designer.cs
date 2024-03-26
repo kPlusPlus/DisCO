@@ -49,7 +49,6 @@
             txtLetter.Name = "txtLetter";
             txtLetter.Size = new Size(45, 23);
             txtLetter.TabIndex = 4;
-            txtLetter.Text = "123 123";
             // 
             // txtIPAddress
             // 
@@ -65,7 +64,6 @@
             txtUnique.Name = "txtUnique";
             txtUnique.Size = new Size(232, 23);
             txtUnique.TabIndex = 5;
-            txtUnique.Text = "123 123";
             // 
             // btnOff
             // 
@@ -108,7 +106,6 @@
             txtNO.Name = "txtNO";
             txtNO.Size = new Size(48, 23);
             txtNO.TabIndex = 6;
-            txtNO.Text = "123 123";
             // 
             // panelStatus
             // 

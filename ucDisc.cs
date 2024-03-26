@@ -108,6 +108,8 @@ namespace DisCO
             int numOfUsb = int.Parse(this.Name.Substring(this.Name.Length - 1));
             string usbProp = "usb" + numOfUsb + "_id";
             formParent.common.SetPropertyValue(Path.Combine(formParent.dirConfig, "config.ini"), usbProp, usbDisc.DiscID);
+            // Grep IP
+            formParent.common.GrepIpByEveryFiles(txtIPAddress.Text);
         }
 
 
@@ -117,16 +119,24 @@ namespace DisCO
             string fileBin = this.Name + ".bin";
             if (File.Exists(fileBin))
             {
-                FileStream fs = new FileStream(fileBin, FileMode.Open);
-                XmlSerializer serializer = new XmlSerializer(typeof(UsbDisc));
-                //serializer.Deserialize(fs);
-                usbDisc = (UsbDisc) serializer.Deserialize(fs);
-                fs.Close();
+                try
+                {
+                    FileStream fs = new FileStream(fileBin, FileMode.Open, FileAccess.Read);
+                    XmlSerializer serializer = new XmlSerializer(typeof(UsbDisc));
+                    //serializer.Deserialize(fs);
+                    usbDisc = (UsbDisc)serializer.Deserialize(fs);
+                    fs.Close();
 
-                txtIPAddress.Text = usbDisc.IPAddress;
-                txtNO.Text = usbDisc.OrderNO.ToString();
-                txtUnique.Text = usbDisc.DiscID;
-                txtLetter.Text = usbDisc.Letter;
+                    txtIPAddress.Text = usbDisc.IPAddress;
+                    txtNO.Text = usbDisc.OrderNO.ToString();
+                    txtUnique.Text = usbDisc.DiscID;
+                    txtLetter.Text = usbDisc.Letter;
+                }
+                catch(Exception ex) 
+                {
+                    formParent.MC_NLOG_error("Error 74 " + fileBin + " " + ex.Message.ToString());
+                    Debug.WriteLine("Error 74 " + fileBin + " " + ex.Message.ToString());
+                }
             }
         }
 

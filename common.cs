@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 
@@ -47,6 +48,43 @@ namespace DisCO
             }
 
             File.WriteAllLines(fileName, lines);
+        }
+
+        public void GrepIpByEveryFiles(string sIPAddress, string sMainFolders = @"C:\BackupConf")
+        {
+            string pattern = @"ping (\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})";
+            string replacement = "ping " + sIPAddress;
+            bool foundMatch = false;
+
+            foreach (string filePath in Directory.EnumerateFiles(sMainFolders, "*", SearchOption.AllDirectories))
+            {
+                try
+                {
+                    string content;
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        content = reader.ReadToEnd();
+                    }
+                    foundMatch = false;
+                    foundMatch = Regex.IsMatch(content, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                    if (foundMatch)
+                    {
+                        // Perform the replacement
+                        string modifiedContent = Regex.Replace(content, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+
+                        // Write the modified content back to the file
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        {
+                            writer.Write(modifiedContent);
+                            Debug.WriteLine("[mod]_1 " + filePath);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                }
+            }
         }
 
     }
