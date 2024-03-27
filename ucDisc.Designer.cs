@@ -43,6 +43,9 @@
             label4 = new Label();
             label5 = new Label();
             txtVolNo = new TextBox();
+            btnDiscNo = new Button();
+            btnDiskID = new Button();
+            btnVolumeNo = new Button();
             SuspendLayout();
             // 
             // txtLetter
@@ -54,7 +57,7 @@
             // 
             // txtIPAddress
             // 
-            txtIPAddress.Location = new Point(20, 26);
+            txtIPAddress.Location = new Point(9, 26);
             txtIPAddress.Name = "txtIPAddress";
             txtIPAddress.Size = new Size(197, 23);
             txtIPAddress.TabIndex = 0;
@@ -62,7 +65,7 @@
             // 
             // txtUnique
             // 
-            txtUnique.Location = new Point(20, 70);
+            txtUnique.Location = new Point(9, 70);
             txtUnique.Name = "txtUnique";
             txtUnique.Size = new Size(232, 23);
             txtUnique.TabIndex = 5;
@@ -104,7 +107,7 @@
             // 
             // txtNO
             // 
-            txtNO.Location = new Point(20, 114);
+            txtNO.Location = new Point(9, 114);
             txtNO.Name = "txtNO";
             txtNO.Size = new Size(48, 23);
             txtNO.TabIndex = 6;
@@ -176,15 +179,48 @@
             // 
             // txtVolNo
             // 
-            txtVolNo.Location = new Point(20, 158);
+            txtVolNo.Location = new Point(9, 158);
             txtVolNo.Name = "txtVolNo";
             txtVolNo.Size = new Size(48, 23);
             txtVolNo.TabIndex = 21;
+            // 
+            // btnDiscNo
+            // 
+            btnDiscNo.Location = new Point(63, 111);
+            btnDiscNo.Name = "btnDiscNo";
+            btnDiscNo.Size = new Size(32, 27);
+            btnDiscNo.TabIndex = 23;
+            btnDiscNo.Text = "...";
+            btnDiscNo.UseVisualStyleBackColor = true;
+            btnDiscNo.Click += btnDiscNo_Click;
+            // 
+            // btnDiskID
+            // 
+            btnDiskID.Location = new Point(245, 70);
+            btnDiskID.Name = "btnDiskID";
+            btnDiskID.Size = new Size(32, 27);
+            btnDiskID.TabIndex = 24;
+            btnDiskID.Text = "...";
+            btnDiskID.UseVisualStyleBackColor = true;
+            btnDiskID.Click += btnDiskID_Click;
+            // 
+            // btnVolumeNo
+            // 
+            btnVolumeNo.Location = new Point(63, 155);
+            btnVolumeNo.Name = "btnVolumeNo";
+            btnVolumeNo.Size = new Size(32, 27);
+            btnVolumeNo.TabIndex = 25;
+            btnVolumeNo.Text = "...";
+            btnVolumeNo.UseVisualStyleBackColor = true;
+            btnVolumeNo.Click += btnVolumeNo_Click;
             // 
             // ucDisc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnVolumeNo);
+            Controls.Add(btnDiskID);
+            Controls.Add(btnDiscNo);
             Controls.Add(label5);
             Controls.Add(txtVolNo);
             Controls.Add(label4);
@@ -223,5 +259,8 @@
         private Label label4;
         private Label label5;
         public TextBox txtVolNo;
+        private Button btnDiscNo;
+        private Button btnDiskID;
+        private Button btnVolumeNo;
     }
 }

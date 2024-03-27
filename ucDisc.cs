@@ -55,7 +55,7 @@ namespace DisCO
 
             */
 
-            if(IsDiskOnline( int.Parse(txtNO.Text) ))
+            if (IsDiskOnline(int.Parse(txtNO.Text)))
                 panelStatus.BackColor = Color.Red;
             else panelStatus.BackColor = Color.Green;
 
@@ -113,11 +113,11 @@ namespace DisCO
             formParent.common.GrepIpByEveryFiles(txtIPAddress.Text);
             // select volume            
             string usbNo = "usb" + numOfUsb;
-            formParent.common.GrepByUsbDevice(usbNo, usbDisc.VolumeNo.ToString() );
+            formParent.common.GrepByUsbDevice(usbNo, usbDisc.VolumeNo.ToString());
             // assign letter 
-            formParent.common.GrepByUsbDeviceLetter(usbNo,usbDisc.Letter);
+            formParent.common.GrepByUsbDeviceLetter(usbNo, usbDisc.Letter);
             // select disk
-            formParent.common.GrepByUsbDeviceDisk(usbNo,usbDisc.OrderNO.ToString() );
+            formParent.common.GrepByUsbDeviceDisk(usbNo, usbDisc.OrderNO.ToString());
         }
 
 
@@ -141,11 +141,11 @@ namespace DisCO
                     txtLetter.Text = usbDisc.Letter;
                     txtVolNo.Text = usbDisc.VolumeNo.ToString();
                 }
-                catch(Exception ex) 
-                {                    
+                catch (Exception ex)
+                {
                     formParent.MC_NLOG_error("Error 74 " + fileBin + " " + ex.Message.ToString());
                     Debug.WriteLine("Error 74 " + fileBin + " " + ex.Message.ToString());
-                    
+
                 }
             }
         }
@@ -206,8 +206,47 @@ namespace DisCO
             }
         }
 
+        private void btnDiscNo_Click(object sender, EventArgs e)
+        {
+            if (formParent == null) return;
 
+            // select text
+            formParent.cmbListScripts.Text = "09-list_disks.bat";
 
+            // select script
+            formParent.cmbListScripts_KeyUp(sender, null);
+
+            // run script
+            formParent.btnRunBatch_Click(sender, null);
+        }
+
+        private void btnDiskID_Click(object sender, EventArgs e)
+        {
+            if (formParent == null) return;
+
+            // select text
+            formParent.cmbListScripts.Text = "11-disk_uid_all.bat";
+
+            // select script
+            formParent.cmbListScripts_KeyUp(sender, null);
+
+            // run script
+            formParent.btnRunBatch_Click(sender, null);
+        }
+
+        private void btnVolumeNo_Click(object sender, EventArgs e)
+        {
+            if (formParent == null) return;
+
+            // select text
+            formParent.cmbListScripts.Text = "list_volume.bat";
+
+            // select script
+            formParent.cmbListScripts_KeyUp(sender, null);
+
+            // run script
+            formParent.btnRunBatch_Click(sender, null);
+        }
     }
 
     [Serializable]

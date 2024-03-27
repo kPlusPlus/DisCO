@@ -31,6 +31,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             ucDisc1 = new ucDisc();
             ucDisc2 = new ucDisc();
+            ucDisc3 = new ucDisc();
             btnLog = new Button();
             panelRunnerScript = new Panel();
             btnStyleBlueMatrix = new Button();
@@ -45,7 +46,6 @@
             btnRunBatch = new Button();
             cmbListScripts = new ComboBox();
             panel2 = new Panel();
-            ucDisc3 = new ucDisc();
             tableLayoutPanel1.SuspendLayout();
             panelRunnerScript.SuspendLayout();
             panel2.SuspendLayout();
@@ -85,6 +85,14 @@
             ucDisc2.Name = "ucDisc2";
             ucDisc2.Size = new Size(307, 275);
             ucDisc2.TabIndex = 1;
+            // 
+            // ucDisc3
+            // 
+            ucDisc3.Dock = DockStyle.Fill;
+            ucDisc3.Location = new Point(629, 3);
+            ucDisc3.Name = "ucDisc3";
+            ucDisc3.Size = new Size(309, 275);
+            ucDisc3.TabIndex = 2;
             // 
             // btnLog
             // 
@@ -244,14 +252,6 @@
             panel2.Size = new Size(776, 125);
             panel2.TabIndex = 18;
             // 
-            // ucDisc3
-            // 
-            ucDisc3.Dock = DockStyle.Fill;
-            ucDisc3.Location = new Point(629, 3);
-            ucDisc3.Name = "ucDisc3";
-            ucDisc3.Size = new Size(309, 275);
-            ucDisc3.TabIndex = 2;
-            // 
             // frmDisCO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -278,19 +278,19 @@
         public ucDisc ucDisc1;
         private Button btnLog;
         public Panel panelRunnerScript;
-        private ComboBox cmbListScripts;
         private Panel panel1;
         private Label label1;
-        private Button btnRunBatch;
         public TextBox txtOutput;
         private Button btnStyleBW;
         private Button btnStyleColorA;
-        private Button btnEdit;
-        private ComboBox cmbConfig;
         private Button btnStyleApple;
-        private Button btnEditBatch;
         private Button btnStyleBlueMatrix;
         private Panel panel2;
         private ucDisc ucDisc3;
+        public ComboBox cmbListScripts;
+        public Button btnRunBatch;
+        public Button btnEdit;
+        public ComboBox cmbConfig;
+        public Button btnEditBatch;
     }
 }

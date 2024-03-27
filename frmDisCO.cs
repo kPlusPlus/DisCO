@@ -30,6 +30,7 @@ namespace DisCO
             InitializeComponent();
             ucDisc1.formParent = this;
             ucDisc2.formParent = this;
+            ucDisc3.formParent = this;
         }
 
         private void frmDisCO_Load(object sender, EventArgs e)
@@ -271,7 +272,7 @@ namespace DisCO
 
         #endregion
 
-        private void btnRunBatch_Click(object sender, EventArgs e)
+        public void btnRunBatch_Click(object sender, EventArgs e)
         {
             if (cmbListScripts.SelectedIndex == -1)
             {
@@ -367,6 +368,9 @@ namespace DisCO
 
             ucDisc2.txtOutput.ForeColor = foreColor;
             ucDisc2.txtOutput.BackColor = backColor;
+
+            ucDisc3.txtOutput.ForeColor = foreColor;
+            ucDisc3.txtOutput.BackColor = backColor;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -403,7 +407,7 @@ namespace DisCO
             Logger.Info("[edit] " + frmEdit.fileIni);
         }
 
-        private void cmbListScripts_KeyUp(object sender, KeyEventArgs e)
+        public void cmbListScripts_KeyUp(object sender, KeyEventArgs e)
         {
             string searchText = cmbListScripts.Text;
             if (searchText.Length < 4) return;
