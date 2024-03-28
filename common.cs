@@ -167,6 +167,7 @@ namespace DisCO
 
         public void GrepByUsbDeviceDisk(string usbFile, string sDiskNo, string sMainFolders = @"C:\BackupConf")
         {
+            if (usbFile == "usb3") usbFile = "lbd";
             string pattern = @"select disk (\d{1,3})";
             string replacement = "select disk " + sDiskNo;
             bool foundMatch = false;

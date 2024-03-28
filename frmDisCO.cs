@@ -31,6 +31,8 @@ namespace DisCO
             ucDisc1.formParent = this;
             ucDisc2.formParent = this;
             ucDisc3.formParent = this;
+
+            ucDisc1.panelDisk.BackgroundImage = Properties.Resources.
         }
 
         private void frmDisCO_Load(object sender, EventArgs e)

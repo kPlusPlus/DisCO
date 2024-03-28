@@ -46,20 +46,22 @@
             btnDiscNo = new Button();
             btnDiskID = new Button();
             btnVolumeNo = new Button();
+            panelDisk = new Panel();
             SuspendLayout();
             // 
             // txtLetter
             // 
-            txtLetter.Location = new Point(143, 158);
+            txtLetter.Location = new Point(152, 158);
             txtLetter.Name = "txtLetter";
-            txtLetter.Size = new Size(45, 23);
+            txtLetter.Size = new Size(33, 23);
             txtLetter.TabIndex = 4;
+            txtLetter.TextAlign = HorizontalAlignment.Center;
             // 
             // txtIPAddress
             // 
             txtIPAddress.Location = new Point(9, 26);
             txtIPAddress.Name = "txtIPAddress";
-            txtIPAddress.Size = new Size(197, 23);
+            txtIPAddress.Size = new Size(94, 23);
             txtIPAddress.TabIndex = 0;
             txtIPAddress.Text = "192.168.0.0";
             // 
@@ -104,6 +106,7 @@
             txtOutput.Name = "txtOutput";
             txtOutput.Size = new Size(271, 34);
             txtOutput.TabIndex = 15;
+            txtOutput.Visible = false;
             // 
             // txtNO
             // 
@@ -214,10 +217,19 @@
             btnVolumeNo.UseVisualStyleBackColor = true;
             btnVolumeNo.Click += btnVolumeNo_Click;
             // 
+            // panelDisk
+            // 
+            panelDisk.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelDisk.Location = new Point(140, 8);
+            panelDisk.Name = "panelDisk";
+            panelDisk.Size = new Size(62, 52);
+            panelDisk.TabIndex = 26;
+            // 
             // ucDisc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(panelDisk);
             Controls.Add(btnVolumeNo);
             Controls.Add(btnDiskID);
             Controls.Add(btnDiscNo);
@@ -262,5 +274,6 @@
         private Button btnDiscNo;
         private Button btnDiskID;
         private Button btnVolumeNo;
+        public Panel panelDisk;
     }
 }

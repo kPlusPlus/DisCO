@@ -3,3 +3,6 @@ IP Address usb2
 
 disk ID usb1
 disk ID usb2
+
+
+--- usb3 kao LBD
