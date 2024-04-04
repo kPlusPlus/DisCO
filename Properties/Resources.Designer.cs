@@ -93,6 +93,26 @@ namespace DisCO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hard_drive_disk_hdd_icon_big {
+            get {
+                object obj = ResourceManager.GetObject("hard-drive-disk-hdd-icon-big", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hdd_usb {
+            get {
+                object obj = ResourceManager.GetObject("hdd_usb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play_svgrepo_com {
             get {
                 object obj = ResourceManager.GetObject("play-svgrepo-com", resourceCulture);

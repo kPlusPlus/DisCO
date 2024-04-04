@@ -128,6 +128,7 @@ namespace DisCO
 
         public void GrepByUsbDeviceLetter(string usbFile, string sLetter, string sMainFolders = @"C:\BackupConf")
         {
+            if (usbFile == "usb3") usbFile = "lbd";
             string pattern = "assign letter (.{1,3})";
             string replacement = "assign letter " + sLetter;
             bool foundMatch = false;

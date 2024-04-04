@@ -32,7 +32,14 @@ namespace DisCO
             ucDisc2.formParent = this;
             ucDisc3.formParent = this;
 
-            ucDisc1.panelDisk.BackgroundImage = Properties.Resources.
+            //TODO: ovdje dodaj slike
+            ucDisc1.panelDisk.BackgroundImage = Properties.Resources.hdd_usb;
+            ucDisc2.panelDisk.BackgroundImage = Properties.Resources.hdd_usb;
+            ucDisc3.panelDisk.BackgroundImage = Properties.Resources.hard_drive_disk_hdd_icon_big;
+
+            ucDisc1.panelDisk.BackgroundImageLayout = ImageLayout.Stretch;
+            ucDisc2.panelDisk.BackgroundImageLayout = ImageLayout.Stretch;
+            ucDisc3.panelDisk.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void frmDisCO_Load(object sender, EventArgs e)
