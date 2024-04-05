@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32.TaskScheduler;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -90,6 +91,7 @@ namespace DisCO
 
         public void GrepByUsbDevice(string usbFile, string sVolNo, string sMainFolders = @"C:\BackupConf")
         {
+            if (usbFile == "usb3") usbFile = "lbd";
             string pattern = @"select volume (\d{1,3})";
             string replacement = "select volume " + sVolNo;
             bool foundMatch = false;
@@ -203,6 +205,29 @@ namespace DisCO
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
                 }
             }
+        }
+
+        public void CreateJob()
+        {
+            // Create a new TaskService instance
+            using (TaskService taskService = new TaskService())
+            {
+                // Define the task properties
+                TaskDefinition taskDefinition = taskService.NewTask();
+                taskDefinition.RegistrationInfo.Description = "My Scheduled Task";
+                taskDefinition.Principal.UserId = "NT AUTHORITY\\SYSTEM"; // Run as System account
+
+                // Define the trigger (e.g., run daily at 3:00 AM)
+                taskDefinition.Triggers.Add(new DailyTrigger { DaysInterval = 1, StartBoundary = DateTime.Today.AddHours(5) });
+
+                // Define the action (e.g., run a console application)
+                taskDefinition.Actions.Add(new ExecAction("MyConsoleApp.exe", null, null));
+
+                // Register the task with the Task Scheduler
+                taskService.RootFolder.RegisterTaskDefinition("MyTask", taskDefinition);
+            }
+
+            Console.WriteLine("Task created successfully.");
         }
 
 

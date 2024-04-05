@@ -47,6 +47,7 @@
             btnDiskID = new Button();
             btnVolumeNo = new Button();
             panelDisk = new Panel();
+            btnDiscManagment = new Button();
             SuspendLayout();
             // 
             // txtLetter
@@ -225,10 +226,21 @@
             panelDisk.Size = new Size(62, 52);
             panelDisk.TabIndex = 26;
             // 
+            // btnDiscManagment
+            // 
+            btnDiscManagment.Location = new Point(101, 111);
+            btnDiscManagment.Name = "btnDiscManagment";
+            btnDiscManagment.Size = new Size(84, 27);
+            btnDiscManagment.TabIndex = 27;
+            btnDiscManagment.Text = "Manager";
+            btnDiscManagment.UseVisualStyleBackColor = true;
+            btnDiscManagment.Click += btnDiscManagment_Click;
+            // 
             // ucDisc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnDiscManagment);
             Controls.Add(panelDisk);
             Controls.Add(btnVolumeNo);
             Controls.Add(btnDiskID);
@@ -275,5 +287,6 @@
         private Button btnDiskID;
         private Button btnVolumeNo;
         public Panel panelDisk;
+        private Button btnDiscManagment;
     }
 }

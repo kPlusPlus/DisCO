@@ -247,6 +247,19 @@ namespace DisCO
             // run script
             formParent.btnRunBatch_Click(sender, null);
         }
+
+        private void btnDiscManagment_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "diskmgmt.msc",
+                UseShellExecute = true
+            };
+
+            Process.Start(startInfo);
+        }
+
+
     }
 
     [Serializable]
