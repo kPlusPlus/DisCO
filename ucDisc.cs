@@ -32,33 +32,9 @@ namespace DisCO
 
         private void btnOn_Click(object sender, EventArgs e)
         {
-            /*
-
-            // Create a new process start info
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/c dir";
-            startInfo.UseShellExecute = false;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.CreateNoWindow = true;
-
-            // Start the process with the specified start info
-            Process process = Process.Start(startInfo);
-
-            // Read the output of the process
-            string output = process.StandardOutput.ReadToEnd();
-
-            // Display the output in the TextBox
-            txtOutput.AppendText(output);
-            panelStatus.BackColor = Color.Red;
-            formParent.MC_NLOG_info(this.Name + "Disc ON");
-
-            */
-
             if (IsDiskOnline(int.Parse(txtNO.Text)))
                 panelStatus.BackColor = Color.Red;
             else panelStatus.BackColor = Color.Green;
-
         }
 
         private void btnOff_Click(object sender, EventArgs e)

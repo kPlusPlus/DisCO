@@ -53,6 +53,7 @@
             // txtLetter
             // 
             txtLetter.Location = new Point(152, 158);
+            txtLetter.MaxLength = 1;
             txtLetter.Name = "txtLetter";
             txtLetter.Size = new Size(33, 23);
             txtLetter.TabIndex = 4;

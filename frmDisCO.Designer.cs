@@ -100,7 +100,7 @@
             btnLog.BackColor = Color.WhiteSmoke;
             btnLog.FlatStyle = FlatStyle.Flat;
             btnLog.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            btnLog.Location = new Point(906, 324);
+            btnLog.Location = new Point(918, 309);
             btnLog.Name = "btnLog";
             btnLog.Size = new Size(47, 23);
             btnLog.TabIndex = 16;
@@ -116,7 +116,7 @@
             panelRunnerScript.Controls.Add(btnStyleBW);
             panelRunnerScript.Controls.Add(label1);
             panelRunnerScript.Controls.Add(txtOutput);
-            panelRunnerScript.Location = new Point(12, 455);
+            panelRunnerScript.Location = new Point(15, 429);
             panelRunnerScript.Name = "panelRunnerScript";
             panelRunnerScript.Size = new Size(776, 199);
             panelRunnerScript.TabIndex = 17;
@@ -247,16 +247,16 @@
             panel2.Controls.Add(btnRunBatch);
             panel2.Controls.Add(cmbConfig);
             panel2.Controls.Add(btnEdit);
-            panel2.Location = new Point(12, 324);
+            panel2.Location = new Point(12, 348);
             panel2.Name = "panel2";
-            panel2.Size = new Size(776, 125);
+            panel2.Size = new Size(776, 75);
             panel2.TabIndex = 18;
             // 
             // frmDisCO
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(965, 719);
+            ClientSize = new Size(965, 333);
             Controls.Add(panel2);
             Controls.Add(btnLog);
             Controls.Add(panelRunnerScript);
