@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NLog;
 using NLog.Windows.Forms;
-using NLog;
 
 namespace DisCO
 {
     public static class Globals
     {
         // --- NLOG ---
-        public static bool ShowHideLog = false;        
+        public static bool ShowHideLog = false;
         public static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
 
@@ -20,7 +15,7 @@ namespace DisCO
             var config = new NLog.Config.LoggingConfiguration();
             RichTextBoxTarget target = new RichTextBoxTarget();
 
-            target.Layout = "${date:format=HH\\:MM\\:ss} ${logger} ${message}";            
+            target.Layout = "${date:format=HH\\:MM\\:ss} ${logger} ${message}";
 
             target.ControlName = "rtbLog2";
             target.FormName = "frmMainAkdamar";

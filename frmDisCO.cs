@@ -1,17 +1,6 @@
-﻿using NLog.Windows.Forms;
-using NLog;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using NLog;
 using System.Diagnostics;
-using System.Drawing.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Text;
 
 namespace DisCO
 {

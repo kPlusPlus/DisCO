@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DisCO
+﻿namespace DisCO
 {
     public partial class frmEditor : Form
     {
@@ -23,7 +13,7 @@ namespace DisCO
         }
 
         public void LoadINI()
-        {            
+        {
             string iniStr = File.ReadAllText(fileIni);
             txtINI.Text = iniStr;
         }
@@ -47,8 +37,8 @@ namespace DisCO
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void frmEditor_FormClosing(object sender, FormClosingEventArgs e)
-        {            
-            btnSave_Click(sender,e);
+        {
+            btnSave_Click(sender, e);
         }
     }
 }

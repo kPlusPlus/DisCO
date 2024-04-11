@@ -1,19 +1,12 @@
 ﻿using Microsoft.Win32.TaskScheduler;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 
 namespace DisCO
 {
     public class Common
-    {        
+    {
 
         public void GetPropertyValue(string fileName, string sProperty)
         {
@@ -37,9 +30,10 @@ namespace DisCO
             }
         }
 
-        public void SetPropertyValue(string fileName, string propertyToSet, string newValue ) {
+        public void SetPropertyValue(string fileName, string propertyToSet, string newValue)
+        {
             string[] lines = File.ReadAllLines(fileName);
-            for(int i = 0; i < lines.Length; i++)
+            for (int i = 0; i < lines.Length; i++)
             {
                 string line = lines[i];
                 if (line.StartsWith(propertyToSet + "="))
@@ -165,7 +159,7 @@ namespace DisCO
                             Globals.Logger.Info("[mod]_3 " + filePath);
                         }
                     }
-                    
+
                     // disk_letter change
                     string contentA = string.Empty;
                     using (StreamReader reader = new StreamReader(filePath))
@@ -282,7 +276,7 @@ namespace DisCO
                         }
                     }
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     Debug.WriteLine("error 3.B " + ex.ToString());
                     Globals.Logger.Error("error 3.B " + ex.ToString());
