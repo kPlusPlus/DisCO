@@ -160,22 +160,56 @@ namespace DisCO
                             Debug.WriteLine("[mod]_3 " + filePath);
                         }
                     }
+                    
                     // disk_letter change
+                    string contentA = string.Empty;
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        contentA = reader.ReadToEnd();
+                    }
+                    modifiedContent = string.Empty;
                     pattern = "disk_letter=(.{1,1})";
                     replacement = "disk_letter=" + sLetter;
                     foundMatch = false;
-                    foundMatch = Regex.IsMatch(modifiedContent, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                    foundMatch = Regex.IsMatch(contentA, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
                     if (foundMatch)
                     {
-                        modifiedContent = Regex.Replace(modifiedContent, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                        modifiedContent = Regex.Replace(contentA, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
                         using (StreamWriter writer = new StreamWriter(filePath))
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_3.A " + filePath);
                         }
-
                     }
-                    
+
+                    //disk1_letter disk2_letter
+                    string contentB = string.Empty;
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        contentB = reader.ReadToEnd();
+                    }
+                    modifiedContent = string.Empty;
+                    int usbNO = 0;
+                    if (usbFile == "usb1") usbNO = 1;
+                    if (usbFile == "usb2") usbNO = 2;
+
+                    if (usbNO > 0)
+                    {
+                        pattern = "disk" + usbNO + "_letter=(.{1,1})";
+                        replacement = "disk" + usbNO + "_letter=" + sLetter;
+                        foundMatch = false;
+                        foundMatch = Regex.IsMatch(contentB, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                        if (foundMatch)
+                        {
+                            modifiedContent = Regex.Replace(contentB, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                            using (StreamWriter writer = new StreamWriter(filePath))
+                            {
+                                writer.Write(modifiedContent);
+                                Debug.WriteLine("[mod]_3.B " + filePath);
+                            }
+                        }
+                    }
+
 
                 }
                 catch (Exception ex)
