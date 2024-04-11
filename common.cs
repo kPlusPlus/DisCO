@@ -79,12 +79,14 @@ namespace DisCO
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_1 " + filePath);
+                            Globals.Logger.Info("[mod]_1 " + filePath);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                    Globals.Logger.Error($"Error processing file {filePath}: {ex.Message}");
                 }
             }
         }
@@ -118,12 +120,14 @@ namespace DisCO
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_2 " + filePath);
+                            Globals.Logger.Info("[mod]_2 " + filePath);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                    Globals.Logger.Error($"Error processing file {filePath}: {ex.Message}");
                 }
             }
         }
@@ -158,6 +162,7 @@ namespace DisCO
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_3 " + filePath);
+                            Globals.Logger.Info("[mod]_3 " + filePath);
                         }
                     }
                     
@@ -179,6 +184,7 @@ namespace DisCO
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_3.A " + filePath);
+                            Globals.Logger.Info("[mod]_3.A " + filePath);
                         }
                     }
 
@@ -186,6 +192,7 @@ namespace DisCO
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                    Globals.Logger.Error($"Error processing file {filePath}: {ex.Message}");
                 }
             }
         }
@@ -220,12 +227,14 @@ namespace DisCO
                         {
                             writer.Write(modifiedContent);
                             Debug.WriteLine("[mod]_4 " + filePath);
+                            Globals.Logger.Info("[mod]_4 " + filePath);
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                    Globals.Logger.Error($"Error processing file {filePath}: {ex.Message}");
                 }
             }
         }
@@ -268,6 +277,7 @@ namespace DisCO
                             {
                                 writer.Write(modifiedContent);
                                 Debug.WriteLine("[mod]_3.B " + filePath);
+                                Globals.Logger.Info("[mod]_3.B " + filePath);
                             }
                         }
                     }
@@ -275,6 +285,7 @@ namespace DisCO
                 catch (Exception ex) 
                 {
                     Debug.WriteLine("error 3.B " + ex.ToString());
+                    Globals.Logger.Error("error 3.B " + ex.ToString());
                 }
             }
         }
@@ -300,6 +311,7 @@ namespace DisCO
             }
 
             Console.WriteLine("Task created successfully.");
+            Globals.Logger.Info("Task created successfully.");
         }
 
 

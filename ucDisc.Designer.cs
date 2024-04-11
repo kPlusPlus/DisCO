@@ -120,7 +120,7 @@
             // panelStatus
             // 
             panelStatus.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelStatus.Location = new Point(226, 8);
+            panelStatus.Location = new Point(170, 8);
             panelStatus.Name = "panelStatus";
             panelStatus.Size = new Size(45, 52);
             panelStatus.TabIndex = 3;
@@ -222,9 +222,9 @@
             // panelDisk
             // 
             panelDisk.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelDisk.Location = new Point(140, 8);
+            panelDisk.Location = new Point(242, 3);
             panelDisk.Name = "panelDisk";
-            panelDisk.Size = new Size(62, 52);
+            panelDisk.Size = new Size(32, 32);
             panelDisk.TabIndex = 26;
             // 
             // btnDiscManagment

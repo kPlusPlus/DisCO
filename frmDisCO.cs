@@ -44,12 +44,13 @@ namespace DisCO
 
         private void frmDisCO_Load(object sender, EventArgs e)
         {
-            NLOG_Config();
+            Globals.NLOG_Config();
             Logger.Info("DisCO start");
             FillComboScript();
             btnStyleBW_Click(sender, e);
         }
 
+        /*
         private void NLOG_Config(string sFileName = "Nlog.log")
         {
             var config = new NLog.Config.LoggingConfiguration();
@@ -80,8 +81,9 @@ namespace DisCO
             // Initialize NLog
             //LogManager.ReconfigExistingLoggers();
         }
+        */
 
-
+        /*
         private void NLOG_ConfigShow(string sFileName = "Nlog.log")
         {
             var config = new NLog.Config.LoggingConfiguration();
@@ -138,18 +140,19 @@ namespace DisCO
             // Initialize NLog
             LogManager.ReconfigExistingLoggers();
         }
+        */
         #region --------------    FUNCTIONS     --------------
         private void btnLog_Click(object sender, EventArgs e)
         {
-            if (ShowHideLog == false)
+            if (Globals.ShowHideLog == false)
             {
-                NLOG_ConfigShow();
+                Globals.NLOG_ConfigShow();
                 ShowHideLog = true;
                 btnLog.FlatStyle = FlatStyle.Standard;
             }
             else
             {
-                NLOG_ConfigHide();
+                Globals.NLOG_ConfigHide();
                 ShowHideLog = false;
                 btnLog.FlatStyle = FlatStyle.Flat;
             }
@@ -158,17 +161,17 @@ namespace DisCO
 
         public void MC_NLOG_info(string sInfo)
         {
-            Logger.Info(sInfo);
+            Globals.Logger.Info(sInfo);
         }
 
         public void MC_NLOG_warn(string sInfo)
         {
-            Logger.Warn(sInfo);
+            Globals.Logger.Warn(sInfo);
         }
 
         public void MC_NLOG_error(string sInfo)
         {
-            Logger.Error(sInfo);
+            Globals.Logger.Error(sInfo);
         }
 
         private void FillComboScript()
