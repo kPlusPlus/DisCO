@@ -94,6 +94,8 @@ namespace DisCO
             formParent.common.GrepByUsbDeviceLetter(usbNo, usbDisc.Letter);
             // select disk
             formParent.common.GrepByUsbDeviceDisk(usbNo, usbDisc.OrderNO.ToString());
+            // drive letter
+
         }
 
 

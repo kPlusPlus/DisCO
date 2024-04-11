@@ -135,6 +135,7 @@ namespace DisCO
             string replacement = "assign letter " + sLetter;
             bool foundMatch = false;
             string searchPattern = "*" + usbFile + "*.*";
+            string modifiedContent = string.Empty;
 
             foreach (string filePath in Directory.EnumerateFiles(sMainFolders, searchPattern, SearchOption.AllDirectories))
             {
@@ -150,7 +151,7 @@ namespace DisCO
                     if (foundMatch)
                     {
                         // Perform the replacement
-                        string modifiedContent = Regex.Replace(content, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                        modifiedContent = Regex.Replace(content, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
 
                         // Write the modified content back to the file
                         using (StreamWriter writer = new StreamWriter(filePath))
@@ -159,6 +160,23 @@ namespace DisCO
                             Debug.WriteLine("[mod]_3 " + filePath);
                         }
                     }
+                    // disk_letter change
+                    pattern = "disk_letter=(.{1,1})";
+                    replacement = "disk_letter=" + sLetter;
+                    foundMatch = false;
+                    foundMatch = Regex.IsMatch(modifiedContent, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                    if (foundMatch)
+                    {
+                        modifiedContent = Regex.Replace(modifiedContent, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        {
+                            writer.Write(modifiedContent);
+                            Debug.WriteLine("[mod]_3.A " + filePath);
+                        }
+
+                    }
+                    
+
                 }
                 catch (Exception ex)
                 {
