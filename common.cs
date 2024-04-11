@@ -182,35 +182,6 @@ namespace DisCO
                         }
                     }
 
-                    //disk1_letter disk2_letter
-                    string contentB = string.Empty;
-                    using (StreamReader reader = new StreamReader(filePath))
-                    {
-                        contentB = reader.ReadToEnd();
-                    }
-                    modifiedContent = string.Empty;
-                    int usbNO = 0;
-                    if (usbFile == "usb1") usbNO = 1;
-                    if (usbFile == "usb2") usbNO = 2;
-
-                    if (usbNO > 0)
-                    {
-                        pattern = "disk" + usbNO + "_letter=(.{1,1})";
-                        replacement = "disk" + usbNO + "_letter=" + sLetter;
-                        foundMatch = false;
-                        foundMatch = Regex.IsMatch(contentB, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                        if (foundMatch)
-                        {
-                            modifiedContent = Regex.Replace(contentB, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
-                            using (StreamWriter writer = new StreamWriter(filePath))
-                            {
-                                writer.Write(modifiedContent);
-                                Debug.WriteLine("[mod]_3.B " + filePath);
-                            }
-                        }
-                    }
-
-
                 }
                 catch (Exception ex)
                 {
@@ -255,6 +226,55 @@ namespace DisCO
                 catch (Exception ex)
                 {
                     Debug.WriteLine($"Error processing file {filePath}: {ex.Message}");
+                }
+            }
+        }
+
+
+        public void GrepByUsbDevice12Letter(string usbFile, string sLetter, string sMainFolders = @"C:\BackupConf")
+        {
+            if (usbFile == "usb3") usbFile = "lbd";
+            string pattern = "assign letter (.{1,3})";
+            string replacement = "assign letter " + sLetter;
+            bool foundMatch = false;
+            string searchPattern = "*.*";
+            string modifiedContent = string.Empty;
+
+            foreach (string filePath in Directory.EnumerateFiles(sMainFolders, searchPattern, SearchOption.AllDirectories))
+            {
+                try
+                {
+                    //disk1_letter disk2_letter
+                    string contentB = string.Empty;
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        contentB = reader.ReadToEnd();
+                    }
+                    modifiedContent = string.Empty;
+                    int usbNO = 0;
+                    if (usbFile == "usb1") usbNO = 1;
+                    if (usbFile == "usb2") usbNO = 2;
+
+                    if (usbNO > 0)
+                    {
+                        pattern = "disk" + usbNO + "_letter=(.{1,1})";
+                        replacement = "disk" + usbNO + "_letter=" + sLetter;
+                        foundMatch = false;
+                        foundMatch = Regex.IsMatch(contentB, pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                        if (foundMatch)
+                        {
+                            modifiedContent = Regex.Replace(contentB, pattern, replacement, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+                            using (StreamWriter writer = new StreamWriter(filePath))
+                            {
+                                writer.Write(modifiedContent);
+                                Debug.WriteLine("[mod]_3.B " + filePath);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    Debug.WriteLine("error 3.B " + ex.ToString());
                 }
             }
         }
