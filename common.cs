@@ -314,7 +314,5 @@ namespace DisCO
             Globals.Logger.Info("Task created successfully.");
         }
 
-
-
     }
 }
