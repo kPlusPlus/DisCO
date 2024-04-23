@@ -10,40 +10,56 @@ namespace DisCO
 
         public void GetPropertyValue(string fileName, string sProperty)
         {
-            string[] lines = File.ReadAllLines(fileName);
-            Dictionary<string, string> properties = new Dictionary<string, string>();
-            foreach (string line in lines)
+            try
             {
-                if (string.IsNullOrWhiteSpace(line) || line.StartsWith(";") || line.StartsWith("#"))
-                    continue;
-                string[] parts = line.Split(new char[] { '=' }, 2, StringSplitOptions.RemoveEmptyEntries);
-                if (parts.Length == 2)
+                string[] lines = File.ReadAllLines(fileName);
+                Dictionary<string, string> properties = new Dictionary<string, string>();
+                foreach (string line in lines)
                 {
-                    string property = parts[0].Trim();
-                    string value = parts[1].Trim();
-                    properties[property] = value;
+                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith(";") || line.StartsWith("#"))
+                        continue;
+                    string[] parts = line.Split(new char[] { '=' }, 2, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length == 2)
+                    {
+                        string property = parts[0].Trim();
+                        string value = parts[1].Trim();
+                        properties[property] = value;
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Invalid line format: {line}");
+                        Globals.Logger.Error($"Invalid line format: {line}");
+                    }
                 }
-                else
-                {
-                    Debug.WriteLine($"Invalid line format: {line}");
-                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error 5.1" + ex.ToString());
+                Globals.Logger.Error("Error 5.1" + ex.ToString());
             }
         }
 
         public void SetPropertyValue(string fileName, string propertyToSet, string newValue)
         {
-            string[] lines = File.ReadAllLines(fileName);
-            for (int i = 0; i < lines.Length; i++)
+            try
             {
-                string line = lines[i];
-                if (line.StartsWith(propertyToSet + "="))
+                string[] lines = File.ReadAllLines(fileName);
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    lines[i] = propertyToSet + "=" + newValue;
-                    break;
+                    string line = lines[i];
+                    if (line.StartsWith(propertyToSet + "="))
+                    {
+                        lines[i] = propertyToSet + "=" + newValue;
+                        break;
+                    }
                 }
+                File.WriteAllLines(fileName, lines);
             }
-
-            File.WriteAllLines(fileName, lines);
+            catch (Exception ex)
+            {
+                Debug.Write("Error 5.2 " + ex.ToString());
+                Globals.Logger.Error("Error 5.2 " + ex.ToString());
+            }
         }
 
         public void GrepIpByEveryFiles(string sIPAddress, string sMainFolders = @"C:\BackupConf")
@@ -190,7 +206,6 @@ namespace DisCO
                 }
             }
         }
-
 
         public void GrepByUsbDeviceDisk(string usbFile, string sDiskNo, string sMainFolders = @"C:\BackupConf")
         {

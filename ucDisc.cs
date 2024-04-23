@@ -107,7 +107,6 @@ namespace DisCO
                 {
                     formParent.MC_NLOG_error("Error 74 " + fileBin + " " + ex.Message.ToString());
                     Debug.WriteLine("Error 74 " + fileBin + " " + ex.Message.ToString());
-
                 }
             }
         }
