@@ -10,6 +10,7 @@
         public frmEditor()
         {
             InitializeComponent();
+            txtINI.SelectionStart = 0;
         }
 
         public void LoadINI()

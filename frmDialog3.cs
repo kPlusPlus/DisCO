@@ -5,6 +5,7 @@
         public frmDialog3()
         {
             InitializeComponent();
+            txtMsg.SelectionStart = 0;
         }
     }
 }

@@ -7,6 +7,7 @@
         public frmDialog1_YesNo()
         {
             InitializeComponent();
+            txtMsg.SelectionStart = 0;
         }
 
         private void btnYes_Click(object sender, EventArgs e)

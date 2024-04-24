@@ -11,7 +11,8 @@
         {
             txtMsg.TextAlign = HorizontalAlignment.Center;
             txtMsg.Left = (this.ClientSize.Width / 2) - (txtMsg.Width / 2);
-            btnOK.Left = (this.ClientSize.Width / 2) - (btnOK.Width / 2);
+            txtMsg.SelectionStart = 0;
+            btnOK.Left = (this.ClientSize.Width / 2) - (btnOK.Width / 2);            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
